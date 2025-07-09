@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP Standard Development Environment | Portfolio</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/new-style.css">
+    <link rel="stylesheet" href="../assets/css/cursor.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-title-group" style="flex-direction: column; align-items: flex-start; gap: 0.2rem;">
+            <h1 style="margin-top: 0.2rem; margin-bottom: 0; white-space: normal;">
+                ESP Standard<br>Development Environment
+            </h1>
+        </div>
+        <p class="header-subtext">MicroPython standard development environment for ESP boards</p>
+    </header>
+    <main>
+        <div class="project-container" style="flex-direction: column; align-items: stretch;">
+            <div class="gallery-area">
+                <div class="masonry-gallery" id="gallery-esp-remote">
+                    <div class="masonry-item" data-index="0">
+                        <img src="https://raw.githubusercontent.com/poqob/esp-remote/main/res/fetch.png"
+                            alt="ESP Remote FTP Fetch Operation">
+                        <div class="masonry-caption">ESP Remote FTP Fetch Operation</div>
+                    </div>
+                    <div class="masonry-item" data-index="1">
+                        <img src="https://raw.githubusercontent.com/poqob/esp-remote/main/res/push.png"
+                            alt="ESP Remote FTP Push Operation">
+                        <div class="masonry-caption">ESP Remote FTP Push Operation</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-details" style="width: 100%;">
+                <section class="project-card">
+                    <h2>About the Project</h2>
+                    <p>ESP Standard Development Environment (std-env-esp) is a ready-to-use framework for ESP boards
+                        using MicroPython. It provides comprehensive connectivity management with WiFi connection
+                        support, access point configuration, FTP server functionality, BLE connectivity, and system
+                        utilities.</p>
+                    <p>This project streamlines ESP development by providing a standardized environment that handles
+                        common tasks such as network connectivity, remote access, and device management.</p>
+                </section>
+                <section class="project-card">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>WiFi Connection Management: Easy connection to WiFi networks with static IP support</li>
+                        <li>Access Point Configuration: Create and manage WiFi access points</li>
+                        <li>WebREPL Support: Remote Python REPL via WebSocket connection</li>
+                        <li>FTP Server: Built-in FTP server for convenient file transfers</li>
+                        <li>BLE Connectivity: Bluetooth Low Energy UART service</li>
+                        <li>Command Server: HTTP API for remote command execution and device control</li>
+                        <li>System Information: Utilities to monitor ESP system information</li>
+                        <li>CPU Frequency Control: Adjust CPU frequency for power/performance balance</li>
+                        <li>JSON Configuration: All settings managed through a central config file</li>
+                    </ul>
+                </section>
+                <section class="project-card">
+                    <h2>Project Structure</h2>
+                    <pre class="code-block">std-env-esp/
+├── app                  # Executable FTP tool for file transfer
+├── _.remove             # Related to FTP tool
+│
+└── project/
+    ├── boot.py              # Entry point that loads setup and calls main
+    ├── config.json          # Configuration file for all services
+    ├── webrepl_cfg.py       # WebREPL configuration
+    │
+    ├── home/
+    │   ├── main.py              # Main application code
+    │   ├── setup.py             # Configuration loader and setup module
+    │   │
+    │   ├── connection/          # Network connectivity modules
+    │   │   ├── access_point.py      # AP management
+    │   │   ├── connection.py        # WiFi client connection
+    │   │   │
+    │   │   └── ble/                 # Bluetooth Low Energy modules
+    │   │       ├── b.py                 # BLE service implementation
+    │   │       ├── ble_advertising.py   # BLE advertising helpers
+    │   │       └── ble_uart_peripheral.py # BLE UART implementation
+    │   │
+    │   ├── utils/               # Utility modules
+    │   │   ├── uftpd.py             # FTP server implementation
+    │   │   └── command_server.py    # HTTP API command server
+    │   │
+    │   └── settings/            # System configuration modules
+    │       ├── frequancy.py         # CPU frequency management
+    │       └── info.py              # System information utilities
+    │
+    └── lib/                  # External libraries (binary format)
+</pre>
+                </section>
+                <section class="project-card">
+                    <h2>Usage Examples</h2>
+                    <h3>WiFi Connection</h3>
+                    <div class="code-block">
+                        from home.connection.connection import Connection
+                        # Connect to WiFi with DHCP
+                        wifi = Connection("your_ssid", "your_password")
+                        wifi.connect()
+                        # Connect with static IP
+                        wifi = Connection("your_ssid", "your_password", ip="192.168.1.100", subnet="255.255.255.0",
+                        gateway="192.168.1.1", dns="8.8.8.8")
+                        wifi.connect()
+                    </div>
+                    <h3>Creating an Access Point</h3>
+                    <div class="code-block">
+                        from home.connection.access_point import AP
+                        # Create and start an access point
+                        ap = AP("ESP_AP", "password123")
+                        # Get AP information
+                        ap.get_ip()
+                        ap.get_config()
+                        ap.get_clients()
+                        ap.get_mac()
+                    </div>
+                </section>
+                <section class="project-card">
+                    <h2>ESP-Remote: FTP Tool</h2>
+                    <p>An important side project, <a href="https://github.com/poqob/esp-remote"
+                            target="_blank">ESP-Remote</a>, is a tool that provides file transfer to ESP devices via FTP
+                        protocol and enables remote management. This tool makes it easy to:</p>
+                    <ul>
+                        <li>Push and fetch files to/from ESP devices</li>
+                        <li>Prevent loading of faulty code with code validation</li>
+                        <li>Use .ignore files to exclude specific files and directories from transfers</li>
+                        <li>Automatically restart ESP devices after push operations</li>
+                        <li>Clean remote files with the .remove file feature</li>
+                        <li>Use a friendly interface and command-line tool</li>
+                    </ul>
+                    <p>The ESP-Remote tool can be used both as a graphical interface and a command-line tool, and is
+                        designed to work on Linux and Windows platforms. This tool significantly speeds up and
+                        simplifies your ESP development process.</p>
+                    <p>Steps needed for installation:</p>
+                    <ol>
+                        <li>For Linux: Install dependencies with the <code>./scripts/install-dependencies.sh</code>
+                            command</li>
+                        <li>For Windows: Install lftp using Chocolatey</li>
+                        <li>Install Python dependencies: <code>pip install -r requirements.txt</code></li>
+                        <li>Optionally compile the application: <code>./build-app.sh</code> or
+                            <code>./build-app.ps1</code>
+                        </li>
+                    </ol>
+                </section>
+                <section class="project-card">
+                    <h2>ESP Remote Tool</h2>
+                    <p>The included 'app' executable is an ESP Remote application with FTP tool for transferring files
+                        to/from your ESP. Source code for this tool is available in a separate repository.</p>
+                    <p>To set up file transfer:</p>
+                    <ol>
+                        <li>The ESP must be running the uftpd.py server (included in this project)</li>
+                        <li>Make sure the ESP is connected to your network or you're connected to its access point</li>
+                        <li>Ensure the executable has execute permissions (chmod +x app if needed)</li>
+                        <li>Run ./app to start the FTP client tool</li>
+                    </ol>
+                </section>
+                <section class="project-card">
+                    <h2>Technologies Used</h2>
+                    <div class="tech-stack">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">MicroPython</span>
+                        <span class="tech-item">ESP32/ESP8266</span>
+                        <span class="tech-item">WebREPL</span>
+                        <span class="tech-item">FTP</span>
+                        <span class="tech-item">BLE</span>
+                    </div>
+                </section>
+                <div class="project-links">
+                    <a href="https://github.com/poqob/std-env-esp" class="btn btn-github" target="_blank">View on
+                        GitHub</a>
+                    <a href="https://github.com/poqob/esp-remote" class="btn btn-github" target="_blank">View ESP-Remote
+                        Project</a>
+                    <a href="javascript:history.back()" class="btn">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Portfolio. All rights reserved.</p>
+    </footer>
+    <script src="../assets/js/custom-cursor.js"></script>
+</body>
+
+</html>

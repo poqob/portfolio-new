@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic-AI | Portfolio</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/new-style.css">
+    <link rel="stylesheet" href="../assets/css/cursor.css">
+    <!-- ...existing code... -->
+    <style>
+        /* All styles moved to new-style.css. You can safely remove this block. */
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-title-group" style="flex-direction: column; align-items: flex-start; gap: 0.2rem;">
+            <h1 style="margin-top: 0.2rem; margin-bottom: 0; white-space: normal;">
+                Agentic-AI
+            </h1>
+        </div>
+        <p class="header-subtext">Modular AI Chat Application with Multi-Modal Capabilities</p>
+    </header>
+    <main>
+        <div class="project-container">
+            <div class="gallery-area">
+                <div class="masonry-gallery" id="gallery" style="display: flex; justify-content: center;">
+                    <div class="masonry-item" data-index="0">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/LiNRWBQKF_Y"
+                            title="Agentic-AI Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            style="border-radius: 12px; box-shadow: 0 4px 16px rgba(44, 62, 80, 0.13);"></iframe>
+                        <div class="masonry-caption">Demo Video</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-details">
+                <section class="project-card">
+                    <h2>About the Project</h2>
+                    <p>Agentic-AI is a comprehensive Flask application providing a modern web interface for interacting
+                        with Large Language Models (LLMs), performing regression analysis, and classifying images - all
+                        with real-time streaming capabilities and AI-powered explanations.</p>
+                    <p>The application integrates multiple AI services and offers a responsive user interface designed
+                        for both text and image-based interactions. It's built with a modular architecture allowing for
+                        easy extension with new ML/AI services.</p>
+                </section>
+                <section class="project-card">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>LLM Chat Interface: Chat with large language models with Markdown rendering and real-time
+                            streaming responses</li>
+                        <li>Regression Analysis: Query regression models directly or via natural language</li>
+                        <li>Image Classification: Upload images for classification with detailed AI explanations</li>
+                        <li>Streaming Support: Real-time streaming for both chat and image analysis with ability to stop
+                            generation</li>
+                        <li>Home Lights Control: Control simulated home lights via chat or API using natural language
+                            commands</li>
+                        <li>Mobile Responsive Design: Optimized for both desktop and mobile devices</li>
+                        <li>Extensible Architecture: Easy to add new ML/AI services or UI features</li>
+                    </ul>
+                </section>
+                <section class="project-card">
+                    <h2>Technologies Used</h2>
+                    <div class="tech-stack">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Flask</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">Ollama API</span>
+                        <span class="tech-item">HTML/CSS</span>
+                        <span class="tech-item">REST API</span>
+                        <span class="tech-item">Machine Learning</span>
+                    </div>
+                </section>
+                <section class="project-card">
+                    <h2>Architecture Overview</h2>
+                    <p>The application consists of several integrated components:</p>
+                    <ul>
+                        <li>Flask Backend: Orchestrates API routing, service integration, and CORS</li>
+                        <li>Ollama Integration: Connects to Ollama LLM API for chat and text generation</li>
+                        <li>Regression Service: External ML service for regression predictions</li>
+                        <li>Image Classification Service: External ML service for image analysis</li>
+                        <li>Web Frontend: Modern UI with chat and image analysis features</li>
+                    </ul>
+                </section>
+                <div class="project-links">
+                    <a href="https://github.com/poqob/agentic-ai" class="btn btn-github" target="_blank">View on
+                        GitHub</a>
+                    <a href="javascript:history.back()" class="btn">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Portfolio. All rights reserved.</p>
+    </footer>
+    <script src="../assets/js/custom-cursor.js"></script>
+</body>
+
+</html>

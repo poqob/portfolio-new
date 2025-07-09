@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Exhibition | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/new-style.css">
+    <link rel="stylesheet" href="../assets/css/cursor.css">
+
+    <style>
+        /* All styles moved to new-style.css. You can safely remove this block. */
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-title-group" style="flex-direction: column; align-items: flex-start; gap: 0.2rem;">
+            <h1 style="margin-top: 0.2rem; margin-bottom: 0; white-space: normal;">
+                Art Exhibition<br>Application
+            </h1>
+        </div>
+        <p class="header-subtext">An art and art literature application</p>
+    </header>
+    <main>
+        <div class="project-container">
+            <div class="gallery-area">
+                <div class="masonry-gallery" id="gallery">
+                    <div class="masonry-item" data-index="0">
+                        <img src="https://raw.githubusercontent.com/poqob/art_exhibition/master/screenshots/main.png"
+                            alt="Art Exhibition Application Screenshot">
+                        <div class="masonry-caption">Main Screen</div>
+                    </div>
+                    <div class="masonry-item" data-index="1">
+                        <img src="https://raw.githubusercontent.com/poqob/art_exhibition/master/screenshots/museums_pageview_debug.png"
+                            alt="Museums Page View">
+                        <div class="masonry-caption">Museums Page View</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-details">
+                <section class="project-card">
+                    <h2>About the Project</h2>
+                    <p>Art Exhibition is a comprehensive mobile application focused on art and art literature. Users can
+                        explore museums, artworks, and artists, save content, and customize application settings.</p>
+                    <p>Developed with Flutter, this application offers a modern and user-friendly interface for art
+                        enthusiasts.</p>
+                </section>
+                <section class="project-card">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Museum catalogs (grid and page views)</li>
+                        <li>Artwork collections</li>
+                        <li>Artist profiles and information</li>
+                        <li>Content saving and favorites</li>
+                        <li>Account and application settings</li>
+                        <li>User-friendly login and registration system</li>
+                    </ul>
+                </section>
+                <section class="project-card">
+                    <h2>Technologies Used</h2>
+                    <div class="tech-stack">
+                        <span class="tech-item">Dart</span>
+                        <span class="tech-item">Flutter</span>
+                        <span class="tech-item">C++</span>
+                        <span class="tech-item">CMake</span>
+                        <span class="tech-item">PostgreSQL</span>
+                    </div>
+                </section>
+                <div class="project-links">
+                    <a href="https://github.com/poqob/art_exhibition?tab=readme-ov-file" class="btn btn-github"
+                        target="_blank">View on GitHub</a>
+                    <a href="javascript:history.back()" class="btn">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Portfolio. All rights reserved.</p>
+    </footer>
+    <script src="../assets/js/custom-cursor.js"></script>
+    <script>
+        // Lightbox functionality for masonry gallery (optional, can be added for consistency)
+        const images = [
+            {
+                src: "https://raw.githubusercontent.com/poqob/art_exhibition/master/screenshots/main.png",
+                caption: "Main Screen"
+            },
+            {
+                src: "https://raw.githubusercontent.com/poqob/art_exhibition/master/screenshots/museums_pageview_debug.png",
+                caption: "Museums Page View"
+            }
+        ];
+        const gallery = document.getElementById('gallery');
+        if (gallery) {
+            gallery.querySelectorAll('.masonry-item').forEach((item, idx) => {
+                item.addEventListener('click', () => {
+                    // Optionally implement lightbox as in ecg-vision-app.html
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

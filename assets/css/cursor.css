@@ -1,0 +1,93 @@
+/* 
+ * Custom cursor styles with higher specificity to override all other cursor styles 
+ * Custom cursor is disabled on mobile devices via media query
+ */
+
+/* Only apply custom cursor on non-mobile devices */
+@media (min-width: 769px) {
+
+    /* Global cursor override */
+    html,
+    body,
+    button,
+    .btn,
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"],
+    a[href],
+    label,
+    select,
+    .stack-card,
+    .card-stack-container,
+    .card-stack,
+    [role="button"],
+    .stack-indicator span,
+    .card-stack *,
+    .card-stack-container *,
+    .stack-card *,
+    .close-modal {
+        cursor: none !important;
+    }
+
+    /* Ensure cursor overrides work even with inline styles */
+    [style*="cursor"] {
+        cursor: none !important;
+    }
+
+    /* Custom cursor styles */
+    .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.08s cubic-bezier(.4, 2, .6, 1), filter 0.2s;
+        will-change: transform, filter;
+        display: none;
+        transform-origin: center;
+        background-image: url('../images/cursor.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .custom-cursor.active {
+        display: block !important;
+    }
+
+    .custom-cursor.click {
+        animation: cursor-click 0.3s cubic-bezier(.4, 2, .6, 1);
+    }
+
+    @keyframes cursor-click {
+        0% {
+            transform: scale(1) translate(-50%, -50%);
+        }
+
+        50% {
+            transform: scale(0.7) translate(-50%, -50%);
+            filter: brightness(1.2);
+        }
+
+        100% {
+            transform: scale(1) translate(-50%, -50%);
+        }
+    }
+}
+
+@keyframes cursor-click {
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+
+    50% {
+        transform: scale(0.7) translate(-50%, -50%);
+        filter: brightness(1.2);
+    }
+
+    100% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+}

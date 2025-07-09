@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Application | Portfolio</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/new-style.css">
+    <link rel="stylesheet" href="../assets/css/cursor.css">
+    <!-- ...existing code... -->
+    <style>
+        /* All styles moved to new-style.css. You can safely remove this block. */
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-title-group" style="flex-direction: column; align-items: flex-start; gap: 0.2rem;">
+            <h1 style="margin-top: 0.2rem; margin-bottom: 0; white-space: normal;">
+                OCR<br>Application
+            </h1>
+        </div>
+        <p class="header-subtext">Text extraction from images application</p>
+    </header>
+    <main>
+        <div class="project-container">
+            <div class="gallery-area">
+                <div class="masonry-gallery" id="gallery" style="display: flex; justify-content: center;">
+                    <div class="masonry-item" data-index="0">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/HaXJhpfLJZk?si=hP1hvGvJ9Ha1n_1K"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                            style="border-radius: 12px; box-shadow: 0 4px 16px rgba(44, 62, 80, 0.13);"></iframe>
+                        <div class="masonry-caption">Demo Video</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-details">
+                <section class="project-card">
+                    <h2>About the Project</h2>
+                    <p>This OCR (Optical Character Recognition) application detects text in images and converts it to
+                        digital text. The application has the ability to recognize texts in different fonts and sizes.
+                    </p>
+                    <p>The project offers a user-friendly interface while utilizing advanced image processing algorithms
+                        in the background. Users can upload images, extract text output, and edit the results.</p>
+                </section>
+                <section class="project-card">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Support for various image formats (JPG, PNG, BMP)</li>
+                        <li>Multiple language support</li>
+                        <li>Text editing and export capabilities</li>
+                        <li>High accuracy rate</li>
+                        <li>User-friendly interface</li>
+                    </ul>
+                </section>
+                <section class="project-card">
+                    <h2>Technologies Used</h2>
+                    <div class="tech-stack">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">OpenCV</span>
+                        <span class="tech-item">Tesseract OCR</span>
+                        <span class="tech-item">Flask</span>
+                        <span class="tech-item">HTML/CSS</span>
+                        <span class="tech-item">JavaScript</span>
+                    </div>
+                </section>
+                <div class="project-links">
+                    <a href="https://github.com/poqob/OCRweb?tab=readme-ov-file" class="btn btn-github"
+                        target="_blank">View on GitHub</a>
+                    <a href="javascript:history.back()" class="btn">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Portfolio. All rights reserved.</p>
+    </footer>
+    <script src="../assets/js/custom-cursor.js"></script>
+</body>
+
+</html>
