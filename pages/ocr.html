@@ -11,6 +11,32 @@
     <!-- ...existing code... -->
     <style>
         /* All styles moved to new-style.css. You can safely remove this block. */
+
+        @media (max-width: 600px) {
+
+            .gallery-area iframe,
+            .masonry-gallery iframe,
+            iframe {
+                max-width: 100% !important;
+                width: 100% !important;
+                height: auto !important;
+                display: block;
+                margin: 0 auto;
+                box-sizing: border-box;
+            }
+
+            .gallery-area,
+            .masonry-gallery {
+                width: 100% !important;
+                overflow-x: auto !important;
+                box-sizing: border-box;
+            }
+
+            .masonry-item {
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 
@@ -77,7 +103,7 @@
         </div>
     </main>
     <footer>
-        <p>&copy; 2023 Portfolio. All rights reserved.</p>
+        <p style="margin-left: 1rem; font-size: 0.8rem;">&copy; 2025 Portfolio. All rights reserved.</p>
     </footer>
     <script src="../assets/js/custom-cursor.js"></script>
 </body>
