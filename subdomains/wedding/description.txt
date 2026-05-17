@@ -1,0 +1,1 @@
+Funda Çiçek Wedding - Custom wedding dress website built with Astro. Features gallery, contact info, and PWA support.

@@ -1,0 +1,32 @@
+<header class="fixed top-0 left-0 right-0 z-[1000] bg-white/95 backdrop-blur-md shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+  <nav class="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="font-serif text-2xl font-semibold text-primary tracking-wider">
+      FUNDA ÇİÇEK
+    </a>
+
+    <ul class="hidden md:flex list-none gap-8" role="navigation" aria-label="Ana navigasyon">
+      <li><a href="#galeri" class="text-sm font-medium transition-colors duration-200 hover:text-primary">GALERİ</a></li>
+      <li><a href="#hakkimizda" class="text-sm font-medium transition-colors duration-200 hover:text-primary">HAKKIMIZDA</a></li>
+      <li><a href="#iletisim" class="text-sm font-medium transition-colors duration-200 hover:text-primary">İLETİŞİM</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a href="#iletisim" class="md:hidden bg-primary text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(214,51,132,0.4)]">
+        Randevu
+      </a>
+      <button id="menu-toggle" class="md:hidden p-2 text-gray-700 hover:text-primary transition-colors" aria-label="Menüyü aç/kapa" aria-expanded="false">
+        <svg id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
+          <path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 shadow-lg" role="navigation" aria-label="Mobil navigasyon">
+    <ul class="flex flex-col py-4">
+      <li><a href="#galeri" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 hover:text-primary transition-colors">GALERİ</a></li>
+      <li><a href="#hakkimizda" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 hover:text-primary transition-colors">HAKKIMIZDA</a></li>
+      <li><a href="#iletisim" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 hover:text-primary transition-colors">İLETİŞİM</a></li>
+    </ul>
+  </div>
+</header>

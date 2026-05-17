@@ -1,0 +1,45 @@
+---
+export interface Props {
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<section class="hero relative h-screen overflow-hidden" aria-label="Hero slayt gösterisi">
+  <div class="hero-slideshow absolute inset-0">
+    {images.map((img, i) => (
+      <div
+        class="hero-slide absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000 ease-in-out"
+        style={`background-image: url(${img})`}
+        data-index={i}
+        role="img"
+        aria-label={`Gelinlik fotoğrafı ${i + 1}`}
+      ></div>
+    ))}
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50"></div>
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+    <p class="text-white font-medium tracking-[0.15em] mb-4 text-sm animate-[fadeInUp_1s_ease-out_0.3s_both]">
+      BURSADA ÖZEL GELİNLİK
+    </p>
+    <h1 class="text-[2.5rem] md:text-[3.5rem] leading-tight mb-6 text-white animate-[fadeInUp_1s_ease-out_0.5s_both]">
+      Hayallerinizi<br/><span class="text-[#f5cdd6]">Giydiriyoruz</span>
+    </h1>
+    <p class="text-white/90 max-w-[32rem] mx-auto mb-8 animate-[fadeInUp_1s_ease-out_0.7s_both]">
+      Özel dikim gelinlik, kiralama ve satış. Her detay sizin için özel tasarlanır.
+    </p>
+    <a href="#galeri" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(214,51,132,0.4)] animate-[fadeInUp_1s_ease-out_0.9s_both]">
+      Modellerimiz
+    </a>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+    {images.map((_, i) => (
+      <button
+        class="w-3 h-3 rounded-full bg-white/40 border-none cursor-pointer transition-all duration-300 hover:bg-white/80 data-[active=true]:bg-white data-[active=true]:scale-125"
+        data-index={i}
+        aria-label={`Slayt ${i + 1}'e git`}
+      ></button>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="gelinlik, bursa, demirtaş, özel dikim, gelinlik kiralama, abiye, kınalık, gelin arabası" />
+    <meta name="theme-color" content="#c77d9e" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fundacicek.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="/images/gelincik_75.webp" as="image" />
+    <title>{title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Funda Çiçek Wedding",
+      "image": "https://fundacicek.com/images/owner.webp",
+      "url": "https://fundacicek.com",
+      "telephone": "+905076813282",
+      "email": "",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Demirtaş Dumlupınar Mah. 1. Ziya Gökalp Cd No:3/A",
+        "addressLocality": "Osmangazi",
+        "addressRegion": "Bursa",
+        "postalCode": "16220",
+        "addressCountry": "TR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "18:30"
+        }
+      ],
+      "priceRange": "₺₺₺",
+      "description": "Bursa özel gelinlik dikim, kiralama ve satış. Özel dikim gelinlik, kınalık, abiye ve gelin arabası süsleme hizmetleri.",
+      "sameAs": [
+        "https://www.instagram.com/fundacicekwedding"
+      ]
+    })} />
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-white focus:text-primary focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">
+      Ana içeriğe geç
+    </a>
+    <slot />
+  </body>
+</html>

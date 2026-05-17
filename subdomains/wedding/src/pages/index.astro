@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Gallery from '../components/Gallery.astro';
+import OwnerSection from '../components/OwnerSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+
+const galleryImages = [
+  { name: 'Zera', type: 'Özel Dikim', image: '/images/gelincik_75.webp' },
+  { name: 'Elena', type: 'Balo Gelinlik', image: '/images/gelincik_50.webp' },
+  { name: 'Mina', type: 'Tesettür', image: '/images/gelincik_25.webp' },
+  { name: 'Luna', type: 'Kırmızı Abiye', image: '/images/offshoulder_75.webp' },
+  { name: 'Rose', type: 'Payetli', image: '/images/offshoulder_50.webp' },
+  { name: 'Star', type: 'Gold Işıl', image: '/images/offshoulder_25.webp' },
+  { name: 'Vera', type: 'A Kesim', image: '/images/reel_05_75.webp' },
+  { name: 'Mira', type: 'Prenses', image: '/images/reel_05_50.webp' },
+  { name: 'Gelin Arabası', type: 'Süsleme', image: '/images/reel_araba_frame6.webp' }
+];
+
+const heroImages = [
+  '/images/gelincik_75.webp',
+  '/images/gelincik_50.webp',
+  '/images/gelincik_25.webp',
+  '/images/offshoulder_75.webp',
+  '/images/offshoulder_50.webp',
+  '/images/offshoulder_25.webp',
+  '/images/reel_05_75.webp',
+  '/images/reel_05_50.webp',
+  '/images/reel_araba_frame6.webp'
+];
+---
+
+<Layout title="Funda Çiçek Wedding - Bursa Özel Gelinlik | Hayallerinizi Giydiriyoruz" description="Funda Çiçek Wedding - Bursa özel gelinlik dikim, kiralama ve satış. Hayallerinizi giydiriyoruz. Demirtaş Osmangazi.">
+  <Header />
+  <main id="main-content">
+    <Hero images={heroImages} />
+    <Gallery images={galleryImages} />
+    <OwnerSection />
+    <ContactSection />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Hero slideshow
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((s, i) => s.classList.toggle('active', i === index));
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === index);
+      d.dataset.active = i === index ? 'true' : 'false';
+    });
+    currentSlide = index;
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
+  });
+
+  let interval = setInterval(() => showSlide((currentSlide + 1) % slides.length), 4000);
+  showSlide(0);
+
+  // Pause slideshow on interaction
+  document.querySelector('.hero')?.addEventListener('mouseenter', () => clearInterval(interval));
+  document.querySelector('.hero')?.addEventListener('mouseleave', () => {
+    interval = setInterval(() => showSlide((currentSlide + 1) % slides.length), 4000);
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden');
+      menuToggle.setAttribute('aria-expanded', !isOpen);
+
+      const icon = menuToggle.querySelector('svg');
+      if (!isOpen) {
+        icon.innerHTML = '<path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" />';
+      } else {
+        icon.innerHTML = '<path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round" />';
+      }
+    });
+
+    // Close menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        const icon = menuToggle.querySelector('svg');
+        icon.innerHTML = '<path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round" />';
+      });
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Scroll reveal animation
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  // Add reveal class first, then observe
+  document.querySelectorAll('section').forEach((section, i) => {
+    if (!section.classList.contains('hero')) {
+      section.classList.add('reveal', `reveal-delay-${i}`);
+      revealObserver.observe(section);
+    }
+  });
+</script>
